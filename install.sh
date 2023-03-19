@@ -98,7 +98,6 @@ checkPortConflicts()
 {
   local OPEN_PORTS=$(lsof -i:80 -i:443 -i:3306 -P -n -sTCP:LISTEN)
   if [ -n "${OPEN_PORTS}" ]; then
-    die "Your system already has services running on port 80, 443 or 3306."
   fi
 }
 
