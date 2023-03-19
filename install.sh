@@ -71,6 +71,7 @@ checkRequirements()
 {
   apt update
   apt -y install lsof
+  checkOperatingSystem
   checkPortConflicts
   checkDatabaseEngine
   checkIfHostnameResolves
@@ -86,7 +87,6 @@ checkOperatingSystem()
       fi
     else
       if [ "$OS_VERSION" != "22.04.6" ]; then
-        die "Only Ubuntu 22.04 LTS is supported."
       fi
     fi
   else
@@ -98,6 +98,7 @@ checkPortConflicts()
 {
   local OPEN_PORTS=$(lsof -i:80 -i:443 -i:3306 -P -n -sTCP:LISTEN)
   if [ -n "${OPEN_PORTS}" ]; then
+    die "Your system already has services running on port 80, 443 or 3306."
   fi
 }
 
