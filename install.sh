@@ -71,7 +71,6 @@ checkRequirements()
 {
   apt update
   apt -y install lsof
-  checkOperatingSystem
   checkPortConflicts
   checkDatabaseEngine
   checkIfHostnameResolves
