@@ -85,10 +85,6 @@ checkOperatingSystem()
       if [ "$OS_VERSION" != "11" ]; then
         die "Only Debian 11 LTS - Bullseye is supported."
       fi
-    else
-      if [ "$OS_VERSION" != "22.04.6" ]; then
-      fi
-    fi
   else
     die "Operating System needs to be Debian or Ubuntu."
   fi
